@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<body>
+
+    
+    <h1>These are the contacts in the database</h1>
+    <ol>
+            {% for contact in contacts %}
+            <li>{{contact.email}}</li>
+            <a href="{% url 'contact_delete' contact.id %}"><button>Delete</button></a>
+            <a href="{% url 'contact_edit' contact.id %}"><button>Edit</button></a>
+            <!-- <h1>{{contact.id}}</h1> -->
+            {% endfor %}
+    </ol>
+
+    <h2>Add another contact here:</h2>
+
+    <form action="{% url 'contact_add' %}" method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="first_name" placeholder="Enter your first name">
+        <br>
+        <input type="text" name="last_name" placeholder="Enter your last name">
+        <br>
+        <input type="email" name="email" placeholder="Enter your email">
+        <br>
+        <button type="submit">Enter</button>
+
+
+    </form>
+
+
+
+
+</body>
+
+
+
+</html>

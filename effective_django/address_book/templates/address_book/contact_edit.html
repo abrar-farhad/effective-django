@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<body>
+    <h1>{{ob.first_name}} {{ob.last_name}}</h1>
+    <form action="{% url 'contact_edit' ob.id  %}" method="POST">
+        <input type="text" name="first_name" placeholder="{{ob.first_name}}">
+        <br>
+        <input type="text" name="last_name" placeholder="{{ob.last_name}}">
+        <br>
+        <input type="email" name="email" placeholder="{{ob.email}}">
+        <br>
+        <button type="submit">Edit</button>
+
+    </form>
+
+</body>
+</html>
